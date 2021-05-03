@@ -1,21 +1,49 @@
 package com.blogproject.blog.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "posts")
 public class Post {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     private Long id;
 
+    @Column(nullable = false)
     private String title;
-    private String anons;
-    private String full_text;
-    private int views;
+
+    @Column(nullable = false)
+    private String fullText;
+
+    @Column(nullable = false)
+    private String date;
+
+    @Column(nullable = false)
+    private Integer views;
+
+    @Column(nullable = false)
+    private Long author;
+
+    public Post() {
+    }
+
+    public Post(String title, String fullText, String date, Integer views, Long author) {
+        this.title = title;
+        this.fullText = fullText;
+        this.date = date;
+        this.views = views;
+        this.author = author;
+    }
+
+    public Post(Long id, String title, String fullText, String date, Integer views, Long author) {
+        this.id = id;
+        this.title = title;
+        this.fullText = fullText;
+        this.date = date;
+        this.views = views;
+        this.author = author;
+    }
 
     public Long getId() {
         return id;
@@ -33,37 +61,47 @@ public class Post {
         this.title = title;
     }
 
-    public String getAnons() {
-        return anons;
+    public String getFullText() {
+        return fullText;
     }
 
-    public void setAnons(String anons) {
-        this.anons = anons;
+    public void setFullText(String fullText) {
+        this.fullText = fullText;
     }
 
-    public String getFull_text() {
-        return full_text;
+    public String getDate() {
+        return date;
     }
 
-    public void setFull_text(String full_text) {
-        this.full_text = full_text;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public int getViews() {
+    public Integer getViews() {
         return views;
     }
 
-    public void setViews(int views) {
+    public void setViews(Integer views) {
         this.views = views;
     }
 
-    public Post() {
-
+    public Long getAuthor() {
+        return author;
     }
 
-    public Post(String title, String anons, String full_text) {
-        this.title = title;
-        this.anons = anons;
-        this.full_text = full_text;
+    public void setAuthor(Long author) {
+        this.author = author;
+    }
+
+    @Override
+    public String toString() {
+        return "Post { " +
+                "id = " + id +
+                ", title = '" + title + '\'' +
+                ", fullText = '" + fullText + '\'' +
+                ", date = '" + date + '\'' +
+                ", views = " + views +
+                ", author = " + author +
+                '}';
     }
 }
