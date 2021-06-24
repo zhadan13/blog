@@ -23,6 +23,3 @@ CREATE TABLE posts
     FOREIGN KEY (author) REFERENCES users (id),
     PRIMARY KEY (id)
 );
-
-INSERT INTO users (login, password, email, first_name, last_name, country)
-VALUES ('artem1', '12345', 'artem1@google.com', 'artem', 'zhadan', 'Ukraine');

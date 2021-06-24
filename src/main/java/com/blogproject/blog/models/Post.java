@@ -2,7 +2,7 @@ package com.blogproject.blog.models;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "Post")
 @Table(name = "posts")
 public class Post {
 

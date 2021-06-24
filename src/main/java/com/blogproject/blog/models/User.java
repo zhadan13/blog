@@ -2,7 +2,7 @@ package com.blogproject.blog.models;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "User")
 @Table(name = "users")
 public class User {
 
@@ -14,12 +14,12 @@ public class User {
     private String login;
 
     @Column(nullable = false)
-    private String password; // TODO: migrate to char[]
+    private String password;
 
     @Column(unique = true, nullable = false)
     private String email;
 
-    @Column(nullable = false) // FIXME: correct Columns names
+    @Column(nullable = false)
     private String firstName;
 
     @Column(nullable = false)
